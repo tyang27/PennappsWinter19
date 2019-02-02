@@ -1,0 +1,11 @@
+.vresize {
+  overflow: scroll;
+}
+
+.textform {
+  width: 80%;
+  color: black;
+  margin: auto;
+  display: flex;
+  flex-direction: row-reverse;
+}
