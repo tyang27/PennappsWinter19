@@ -3,9 +3,9 @@
 }
 
 
-.form-wrapper {
+.body-wrapper {
   width: 80%;
-  margin: auto;
+  margin: auto auto 20px;
 }
 
 .input-group-addon {
@@ -39,6 +39,7 @@
 .checkinout-wrapper {
   display: grid;
   grid-template-columns: 1fr 1fr;
+  margin-bottom: 10px;
 }
 
 .checkin {
@@ -50,4 +51,18 @@
   padding: 10px;
   border: black 1px solid;
   border-left: black 0 solid;
+}
+
+.calendar-grid {
+  border: black 1px solid;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+#daynames {
+  background-color: beige;
+}
+
+.cal_row {
+  font-size: x-small;
 }
