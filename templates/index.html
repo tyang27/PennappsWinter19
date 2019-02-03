@@ -22,30 +22,21 @@
 
       <!-- Calendar. -->
       <div class="calendar-wrapper">
-        <div class="container calendar-grid">
-          <div class="row" id="daynames">
-            <div class="col-sm"></div>
-            <div class="col-sm">Sunday</div>
-            <div class="col-sm">Monday</div>
-            <div class="col-sm">Tuesday</div>
-            <div class="col-sm">Wednesday</div>
-            <div class="col-sm">Thursday</div>
-            <div class="col-sm">Friday</div>
-            <div class="col-sm">Saturday</div>
-          </div>
-          {% for i in increments%}
-          <div class="row cal_row">
-            <div class="col-sm">{{i}}</div>
-            <div class="col-sm"></div>
-            <div class="col-sm"></div>
-            <div class="col-sm"></div>
-            <div class="col-sm"></div>
-            <div class="col-sm"></div>
-            <div class="col-sm"></div>
-            <div class="col-sm"></div>
-          </div>
+        <div class="calendar-grid">
+            <div class="col-item"></div>
+            <div class="col-item">Sunday</div>
+            <div class="col-item">Monday</div>
+            <div class="col-item">Tuesday</div>
+            <div class="col-item">Wednesday</div>
+            <div class="col-item">Thursday</div>
+            <div class="col-item">Friday</div>
+            <div class="col-item">Saturday</div>
+          {% for i in increments %}
+            <div class="col-time text-small" style="grid-row-start: {{loop.index+1}};">{{i}}</div>
           {% endfor %}
 
+          <div class="col-sm transparent-item" style="grid-row-start: 5; grid-row-end: 9; grid-column-start: 3;">1</div>
+          <div class="col-sm transparent-item" style="grid-row-start: 8; grid-row-end: 12; grid-column-start: 3;">2</div>
         </div>
       </div>
 
@@ -58,7 +49,7 @@
           <div class="checkin">
             <form action="./checkin" method="post">
               <div class="input-group">
-                <span class="input-group-addon">User</span>
+                <span class="input-group-addon">ID</span>
                 <input type="text" class="form-control" name="username">
               </div>
 
@@ -78,7 +69,7 @@
           <div class="checkout">
             <form action="./checkout" method="post">
               <div class="input-group">
-                <span class="input-group-addon">User</span>
+                <span class="input-group-addon">ID</span>
                 <input type="text" class="form-control" name="username">
               </div>
 
@@ -99,18 +90,24 @@
         <form action = "./returning" method = "POST">
 
           <div class="input-group">
-            <span class="input-group-addon">Text</span>
-            <input id="msg" type="text" class="form-control" name="msg" placeholder="Numerical">
+            <span class="input-group-addon">Week</span>
+            <input type="date" class="form-control" name="week" placeholder="Numerical">
           </div>
 
           <div class="input-group">
-            <span class="input-group-addon">Text</span>
-            <input id="msg" type="text" class="form-control" name="msg" placeholder="Numerical">
+            <span class="input-group-addon">Day</span>
+            <select class="form-control" name="day">
+              <option>Monday</option>
+              <option>Tuesday</option>
+              <option>Wednesday</option>
+              <option>Thursday</option>
+              <option>Friday</option>
+            </select>
           </div>
 
           <div class="input-group">
-            <span class="input-group-addon">Text</span>
-            <input id="msg" type="text" class="form-control" name="msg" placeholder="Numerical">
+            <span class="input-group-addon">ID</span>
+            <input type="text" class="form-control" name="id" placeholder="Numerical">
           </div>
 
           <button type="submit" class="btn btn-light">Submit</button>
@@ -122,18 +119,19 @@
         <form action = "./incoming" method = "POST">
 
           <div class="input-group">
-            <span class="input-group-addon">Text</span>
-            <input id="msg" type="text" class="form-control" name="msg" placeholder="Numerical">
+            <span class="input-group-addon">Week</span>
+            <input type="date" class="form-control" name="week" placeholder="Numerical">
           </div>
 
           <div class="input-group">
-            <span class="input-group-addon">Text</span>
-            <input id="msg" type="text" class="form-control" name="msg" placeholder="Numerical">
-          </div>
-
-          <div class="input-group">
-            <span class="input-group-addon">Text</span>
-            <input id="msg" type="text" class="form-control" name="msg" placeholder="Numerical">
+            <span class="input-group-addon">Day</span>
+            <select class="form-control" name="day">
+              <option>Monday</option>
+              <option>Tuesday</option>
+              <option>Wednesday</option>
+              <option>Thursday</option>
+              <option>Friday</option>
+            </select>
           </div>
 
           <button type="submit" class="btn btn-light">Submit</button>

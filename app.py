@@ -1,4 +1,4 @@
-from flask import Flask, render_template, url_for, request
+from flask import Flask, render_template, url_for, request, flash, Session
 from datetime import datetime
 import os
 
@@ -18,6 +18,9 @@ INCREMENTS = [
     ]
 
 app = Flask(__name__)
+app.config['SESSION_TYPE'] = 'memcached'
+app.config['SECRET_KEY'] = 'super secret key'
+sess = Session()
 #app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
 def allowed_file(filename):
@@ -31,6 +34,31 @@ def upload_data():
         print('POST')
         wf = request.form['waveform']
     return render_template('results.html', waveform = wf)
+
+
+@app.route('/incoming', methods=['GET','POST'])
+def incoming():
+    if request.method == 'POST':
+        print('POST')
+        print(request.form)
+        if request.form['week'] == '':
+            print('empty field')
+        elif request.form['day'] == '':
+            print('empty field')
+    return render_template('index.html', increments=INCREMENTS)
+
+@app.route('/returning', methods=['GET','POST'])
+def returning():
+    if request.method == 'POST':
+        print('POST')
+        print(request.form)
+        if request.form['id'] == '':
+            print('empty field')
+        elif request.form['week'] == '':
+            print('empty field')
+        elif request.form['day'] == '':
+            print('empty field')
+    return render_template('index.html', increments=INCREMENTS)
 
 @app.route('/checkin', methods=['GET', 'POST'])
 def checkin():

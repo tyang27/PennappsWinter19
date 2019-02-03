@@ -1,6 +1,6 @@
 .vresize {
-  overflow: scroll;
-}
+   overflow: scroll;
+ }
 
 
 .body-wrapper {
@@ -53,16 +53,36 @@
   border-left: black 0 solid;
 }
 
-.calendar-grid {
-  border: black 1px solid;
-  text-align: center;
-  margin-bottom: 10px;
-}
 
 #daynames {
   background-color: beige;
 }
 
-.cal_row {
+.calendar-grid {
+  border: black 1px solid;
+  text-align: center;
+  margin-bottom: 10px;
+
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+}
+
+.col-item {
+  background-color: beige;
+}
+
+.text-small {
   font-size: x-small;
+}
+.transparent-item {
+  background-color: rgba(255, 0, 0, 0.4);
+  border: black 1px solid;
+  border-radius: 5px;
+  display: flex;
+  text-align: center;
+  align-items: center;
+  overflow: auto;
+}
+.col-time {
+  grid-column-start: 0
 }
