@@ -74,15 +74,16 @@ def add_time(x, y):
     return z
 
 def overlap_calculator(week, day, time):
-    if add_time(time, 15) in week.days[day]:
+    if add_time(time, 15) in week.days[day].ppl.keys():
         return 15
     return 0
 
 def idleness_cost(week, day, ID, time, data):
     week.add_appt(day, ID, time)
     cost = 0
-    for keys in week.days[day]:
-        cost += (30-overlap_calculator(week, day, keys))* data.loc(ID, "Cancellation Index")
+    for keys in week.days[day].ppl:
+        overlap = overlap_calculator(week, day, keys)
+        cost += ((30-overlap))#* data.loc(ID, "Cancellation Index"))
     week.cancel_appt(day, ID, time)
     return cost
 
@@ -90,7 +91,7 @@ def waiting_cost(week, day, ID, time, data):
     week.add_appt(day, ID, time)
     cost = 0
     for time in self.possible_times:
-        cost += (overlap_calculator(week, day, keys))*(1-data.loc(ID, "Cancellation Index"))
+        cost += ((overlap_calculator(week=week, day=day, time=keys))*(1-data.loc(ID, "Cancellation Index")))
     week.cancel_appt(day, ID, time)
     return cost
 

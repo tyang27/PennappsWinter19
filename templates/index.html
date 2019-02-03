@@ -35,10 +35,8 @@
             <div class="col-time text-small" style="grid-row-start: {{loop.index+1}};">{{i}}</div>
           {% endfor %}
 
-          <div class="col-sm transparent-item" style="grid-row-start: 5; grid-row-end: 9; grid-column-start: 3;">1</div>
-          <div class="col-sm transparent-item" style="grid-row-start: 8; grid-row-end: 12; grid-column-start: 3;">2</div>
           {% for t in time %}
-            <div class="col-sm transparent-item" style="grid-row-start: {{t[1]+2}}; grid-row-end: {{t[1]+4}}; grid-column-start: {{t[2]+1}};">{{t[0]}}</div>
+            <div class="col-sm transparent-item" style="grid-row-start: {{t[1]+2}}; grid-row-end: {{t[1]+4}}; grid-column-start: {{t[2]+1}};">ID: {{t[0]}}</div>
           {% endfor %}
         </div>
       </div>

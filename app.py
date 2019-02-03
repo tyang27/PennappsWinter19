@@ -50,16 +50,19 @@ def build_week(week):
             SCHEDULE.append((pat_id, time_translate(pat_time), dayofweek_translate[dayofweek]))
     return SCHEDULE
 
+pat_cnt = 0
 @app.route('/incoming', methods=['GET','POST'])
 def incoming():
     """Handle scheduling for new user and re-render home page."""
     if request.method == 'POST':
         print('POST')
         print(request.form)
-        if request.form['week'] == '':
+        if request.form['day'] == '':
             print('empty field')
-        elif request.form['day'] == '':
-            print('empty field')
+            
+        sch.schedule_appt(week, request.form['day'], pat_cnt, patient_roster)
+        pat_cnt += 1
+
     return render_template('index.html', increments=INCREMENTS, time=SCHEDULE)
 
 @app.route('/returning', methods=['GET','POST'])
@@ -69,13 +72,12 @@ def returning():
         print('POST')
         print(request.form)
 
-        if request.form['id'] == '' or request.form['week'] == '' or request.form['day'] == '':
+        if request.form['id'] == '' or request.form['day'] == '':
             print('empty field')
             return render_template('index.html', increments=INCREMENTS)
 
-        sch.schedule_appt(week, request.form['day'], request.form['id'], patient_roster)
-
-    return render_template('index.html', increments=INCREMENTS, time=build_week(week))
+        SCHEDULE.append((int(request.form['id']), len(SCHEDULE), dayofweek_translate[request.form['day']]))
+    return render_template('index.html', increments=INCREMENTS, time=SCHEDULE)
 
 @app.route('/checkin', methods=['GET', 'POST'])
 def checkin():
@@ -115,4 +117,5 @@ def dated_url_for(endpoint, **values):
     return url_for(endpoint, **values)
 
 if __name__ == '__main__':
+    pat_cnt = 0
     app.run()
