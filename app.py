@@ -1,4 +1,5 @@
-from flask import Flask, render_template, url_for
+from flask import Flask, render_template, url_for, request
+from datetime import datetime
 import os
 
 UPLOADS = '/uploads'
@@ -13,7 +14,35 @@ def allowed_file(filename):
 
 @app.route('/upload', methods=['GET', 'POST'])
 def upload_data():
-    return render_template('index.html')
+    wf='No input detected'
+    if request.method == 'POST':
+        print('POST')
+        wf = request.form['waveform']
+    return render_template('results.html', waveform = wf)
+
+@app.route('/checkin', methods=['GET', 'POST'])
+def checkin():
+    if request.method == 'POST':
+        print('Checkin post')
+        print(request.form)
+    username = request.form['username']
+    print(username)
+    time = request.form['time'] if request.form['time'] != '' else datetime.now().strftime('%H:%M')
+    return render_template('checkin.html',
+        username=username,
+        time=time)
+
+@app.route('/checkout', methods=['GET', 'POST'])
+def checkout():
+    if request.method == 'POST':
+        print('Checkout post')
+        print(request.form)
+    username = request.form['username']
+    print(username)
+    time = request.form['time'] if request.form['time'] != '' else datetime.now().strftime('%H:%M')
+    return render_template('checkout.html',
+        username=username,
+        time=time)
 
 
 @app.context_processor

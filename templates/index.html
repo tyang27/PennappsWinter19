@@ -17,16 +17,104 @@
   </head>
 
   <body>
-    <h1>Project</h1>
+    <div class="form-wrapper">
+      <h1>Project</h1>
 
-    <div class="textform">
-      <div>
-        <textarea class="form-control vresize" id="encJs"></textarea>
+      <!-- Calendar. -->
+
+
+
+      <!-- Checking in and out. -->
+      <div class="checkinout-wrapper">
+        <!-- Check in. -->
+        <div class="checkin-wrapper">
+          <h2>Check in</h2>
+          <div class="checkin">
+            <form action="./checkin" method="post">
+              <div class="input-group">
+                <span class="input-group-addon">User</span>
+                <input type="text" class="form-control" name="username">
+              </div>
+
+              <div class="input-group">
+                <span class="input-group-addon">Time</span>
+                <input type="time" class="form-control" name="time" placeholder="H:M"><a href="" class="input-group-addon" id="nowtime">Now</a>
+              </div>
+
+              <button type="submit" class="btn btn-light">Submit</button>
+            </form>
+          </div>
+        </div>
+
+        <!-- Check out. -->
+        <div class="checkout-wrapper">
+          <h2>Check out</h2>
+          <div class="checkout">
+            <form action="./checkout" method="post">
+              <div class="input-group">
+                <span class="input-group-addon">User</span>
+                <input type="text" class="form-control" name="username">
+              </div>
+
+              <div class="input-group">
+                <span class="input-group-addon">Time</span>
+                <input type="time" class="form-control" name="time" placeholder="H:M"><a href="" class="input-group-addon" id="nowtime">Now</a>
+              </div>
+
+              <button type="submit" class="btn btn-light">Submit</button>
+            </form>
+          </div>
+        </div>
       </div>
-      <div class="right_button">
-        <button name="submit_text" type="button" class="btn btn-light">Submit</button>
+
+      <h2>Make an appointment</h2>
+      <button data-toggle="collapse" data-target="#returning" class="collapsing_bar">Returning user</button>
+      <div class="collapse" id="returning">
+        <form action = "./returning" method = "POST">
+
+          <div class="input-group">
+            <span class="input-group-addon">Text</span>
+            <input id="msg" type="text" class="form-control" name="msg" placeholder="Numerical">
+          </div>
+
+          <div class="input-group">
+            <span class="input-group-addon">Text</span>
+            <input id="msg" type="text" class="form-control" name="msg" placeholder="Numerical">
+          </div>
+
+          <div class="input-group">
+            <span class="input-group-addon">Text</span>
+            <input id="msg" type="text" class="form-control" name="msg" placeholder="Numerical">
+          </div>
+
+          <button type="submit" class="btn btn-light">Submit</button>
+        </form>
+      </div>
+
+      <button data-toggle="collapse" data-target="#incoming" class="collapsing_bar">Incoming user</button>
+      <div class="collapse" id="incoming">
+        <form action = "./incoming" method = "POST">
+
+          <div class="input-group">
+            <span class="input-group-addon">Text</span>
+            <input id="msg" type="text" class="form-control" name="msg" placeholder="Numerical">
+          </div>
+
+          <div class="input-group">
+            <span class="input-group-addon">Text</span>
+            <input id="msg" type="text" class="form-control" name="msg" placeholder="Numerical">
+          </div>
+
+          <div class="input-group">
+            <span class="input-group-addon">Text</span>
+            <input id="msg" type="text" class="form-control" name="msg" placeholder="Numerical">
+          </div>
+
+          <button type="submit" class="btn btn-light">Submit</button>
+        </form>
       </div>
     </div>
+
 
     <!-- Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>

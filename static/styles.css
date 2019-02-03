@@ -2,10 +2,52 @@
   overflow: scroll;
 }
 
-.textform {
+
+.form-wrapper {
   width: 80%;
-  color: black;
   margin: auto;
-  display: flex;
-  flex-direction: row-reverse;
+}
+
+.input-group-addon {
+  padding: 10px;
+}
+
+.form-control {
+  overflow: auto;
+}
+
+.collapsing_bar {
+  width: 100%;
+  text-align: left;
+}
+
+
+
+#returning {
+  border: black 1px solid;
+  border-top: black 0 solid;
+  padding: 10px;
+}
+
+
+#incoming {
+  border: black 1px solid;
+  border-top: black 0 solid;
+  padding: 10px;
+}
+
+.checkinout-wrapper {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.checkin {
+  padding: 10px;
+  border: black 1px solid;
+}
+
+.checkout {
+  padding: 10px;
+  border: black 1px solid;
+  border-left: black 0 solid;
 }
