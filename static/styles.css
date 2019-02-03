@@ -69,11 +69,13 @@
 
 .col-item {
   background-color: beige;
+  border-bottom: 0.75px black solid;
 }
 
 .text-small {
   font-size: x-small;
 }
+
 .transparent-item {
   background-color: rgba(255, 0, 0, 0.4);
   border: black 1px solid;
@@ -84,5 +86,6 @@
   overflow: auto;
 }
 .col-time {
-  grid-column-start: 0
+  grid-column-start: 0;
+  border-right: gray 0.75px solid;
 }
