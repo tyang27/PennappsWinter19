@@ -11,4 +11,3 @@ In the world of out patient care, it is crucial that highly skilled doctors be e
 
 Our solution takes inspiration from this field of research and the literature surrounding it, and proposes a scheduling system that takes patient record into account and schedules patients based on their risk of cancellation and no-show. Some factors we took into account were age, day of the week, health risks, previous cancellation record, and average time before cancellation. With this information, we created an index of risk based on a method proposed in a publication from Operations Research for Healthcare, "An analysis of overlapping appointment scheduling model in an outpatient clinic". We minimzed this risk and scheduled the patient accordingly to increase efficiency in healthcare settings.
 
-https://www.tutorialspoint.com/flask/flask_sending_form_data_to_template.htm
